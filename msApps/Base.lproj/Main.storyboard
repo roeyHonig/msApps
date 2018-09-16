@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,7 +54,53 @@
                     <view key="view" contentMode="scaleToFill" id="GmA-hQ-Bx6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v1v-2x-esX">
+                                <rect key="frame" x="8" y="72" width="359" height="595"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" rowHeight="197" id="IcN-ua-Vh6" customClass="MovieTableViewCell" customModule="msApps" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="197"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcN-ua-Vh6" id="FUv-A5-edy">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clapperboard_filled" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-bM-FpC">
+                                                    <rect key="frame" x="8" y="8" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="6Jf-bM-FpC" secondAttribute="height" id="I4l-ei-Vvq"/>
+                                                        <constraint firstAttribute="height" constant="100" id="iSw-IB-1pL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Haw-Ja-M7G">
+                                                    <rect key="frame" x="116" y="8" width="235" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Haw-Ja-M7G" firstAttribute="leading" secondItem="6Jf-bM-FpC" secondAttribute="trailing" constant="8" id="6Zb-pY-54t"/>
+                                                <constraint firstAttribute="bottom" secondItem="Haw-Ja-M7G" secondAttribute="bottom" constant="8" id="AiL-xy-2f9"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Jf-bM-FpC" secondAttribute="bottom" id="GfC-nF-zJC"/>
+                                                <constraint firstItem="Haw-Ja-M7G" firstAttribute="trailing" secondItem="FUv-A5-edy" secondAttribute="trailingMargin" id="Jdq-6x-VJB"/>
+                                                <constraint firstItem="6Jf-bM-FpC" firstAttribute="leading" secondItem="FUv-A5-edy" secondAttribute="leadingMargin" id="QlB-5m-Sxd"/>
+                                                <constraint firstItem="6Jf-bM-FpC" firstAttribute="top" secondItem="FUv-A5-edy" secondAttribute="topMargin" id="kOA-9o-qUg"/>
+                                                <constraint firstItem="Haw-Ja-M7G" firstAttribute="centerY" secondItem="FUv-A5-edy" secondAttribute="centerY" id="uox-oL-aBu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v1v-2x-esX" firstAttribute="bottom" secondItem="5lL-yt-wgB" secondAttribute="bottom" id="08z-JN-fTl"/>
+                            <constraint firstItem="v1v-2x-esX" firstAttribute="leading" secondItem="5lL-yt-wgB" secondAttribute="leading" constant="8" id="XsB-MQ-4ok"/>
+                            <constraint firstItem="5lL-yt-wgB" firstAttribute="trailing" secondItem="v1v-2x-esX" secondAttribute="trailing" constant="8" id="hce-pj-tCr"/>
+                            <constraint firstItem="v1v-2x-esX" firstAttribute="top" secondItem="5lL-yt-wgB" secondAttribute="top" constant="8" id="vsc-xe-PdA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5lL-yt-wgB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie list" id="h7L-ek-Fs1">
@@ -62,10 +110,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="moviesTableView" destination="v1v-2x-esX" id="JN0-6b-idk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN6-Je-PuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="889"/>
+            <point key="canvasLocation" x="1484" y="888.30584707646187"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ew1-5V-81b">
@@ -86,4 +137,7 @@
             <point key="canvasLocation" x="670" y="889"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-clapperboard_filled" width="50" height="50"/>
+    </resources>
 </document>

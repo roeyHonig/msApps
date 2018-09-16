@@ -8,19 +8,36 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
-    
+class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func addMovieViaQRCode(_ sender: UIBarButtonItem) {
         print("adding a movie")
     }
     
+    @IBOutlet var moviesTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        moviesTableView.delegate = self
+        moviesTableView.dataSource = self
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3 // should read core data
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableViewCell
+        
+        return cell
+    }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
