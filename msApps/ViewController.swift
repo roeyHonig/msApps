@@ -41,10 +41,11 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.destination is MovieListViewController {
+        if segue.destination is UINavigationController {
            print("prepere")
             // next screen is the movies list
-            let movieList = segue.destination as! MovieListViewController
+            
+            let movieList = (segue.destination as! UINavigationController).viewControllers[0] as! MovieListViewController
             movieList.moviesListDataSource = movieCollection
         }
     }
