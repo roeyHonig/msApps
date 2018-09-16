@@ -135,6 +135,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
+    
+    // Read from CoreData
+    func getMoviesFromCoreData() -> [MovieHeader] {
+        var ArrayToReturn: [MovieHeader] = []
+        var myManagedObjectToReturn: [NSManagedObject] = []
+        // fetch the coreData
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
+        
+        // sort by
+        let descriptor1 = NSSortDescriptor(key: "releaseYear", ascending: true)
+        let descriptors = [descriptor1]
+        fetchRequest.sortDescriptors = descriptors
+        
+        // fetch according to sorting descriptions
+        do {
+            let favoriesTable = try managedContext.fetch(fetchRequest)
+            myManagedObjectToReturn = favoriesTable
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        // iterate, constrct RecipyHeader and append
+        
+        return ArrayToReturn
+    }
 
 }
 
