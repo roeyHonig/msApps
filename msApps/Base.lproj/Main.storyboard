@@ -28,9 +28,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZT-Hv-MId">
                                 <rect key="frame" x="20" y="28" width="335" height="30"/>
                                 <state key="normal" title="go to movie list"/>
-                                <connections>
-                                    <segue destination="2wo-yq-OYt" kind="show" identifier="goToMovieListSegue" id="L6t-NI-EIJ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zX-Hn-jMZ">
                                 <rect key="frame" x="0.0" y="66" width="375" height="30"/>
@@ -53,6 +50,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="N60-bp-Ioz" kind="show" identifier="goToMovieListSegue" id="Ek7-GC-OR8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v1v-2x-esX">
-                                <rect key="frame" x="8" y="72" width="359" height="595"/>
+                                <rect key="frame" x="8" y="28" width="359" height="639"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" rowHeight="197" id="IcN-ua-Vh6" customClass="MovieTableViewCell" customModule="msApps" customModuleProvider="target">
@@ -102,6 +102,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="movieTitleLabel" destination="Haw-Ja-M7G" id="1A2-Lc-uPq"/>
                                             <segue destination="4vO-eH-jSC" kind="show" id="7jW-uF-DHY"/>
                                         </connections>
                                     </tableViewCell>
@@ -170,10 +171,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nkn-c4-6Hu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="889"/>
+            <point key="canvasLocation" x="142" y="989"/>
         </scene>
     </scenes>
     <resources>
         <image name="icons8-clapperboard_filled" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ek7-GC-OR8"/>
+    </inferredMetricsTieBreakers>
 </document>

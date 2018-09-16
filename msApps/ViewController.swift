@@ -27,6 +27,7 @@ class ViewController: UIViewController {
             DispatchQueue.main.async {
                 // performe segue
                 print("going tro next screen")
+                
                 self.performSegue(withIdentifier: "goToMovieListSegue", sender: self)
             }
         }
@@ -36,6 +37,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.destination is MovieListViewController {
+           print("prepere")
+            // next screen is the movies list
+            let movieList = segue.destination as! MovieListViewController
+            movieList.moviesListDataSource = movieCollection
+        }
     }
 
     override func didReceiveMemoryWarning() {

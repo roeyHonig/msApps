@@ -10,6 +10,8 @@ import UIKit
 
 class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var moviesListDataSource: [MovieHeader] = []
+    
     @IBAction func addMovieViaQRCode(_ sender: UIBarButtonItem) {
         print("adding a movie")
     }
@@ -23,14 +25,16 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         // Do any additional setup after loading the view.
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
+        moviesTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // should read core data
+        return moviesListDataSource.count // should read core data
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableViewCell
+        cell.movieTitleLabel.text = moviesListDataSource[indexPath.row].title
         
         return cell
     }
