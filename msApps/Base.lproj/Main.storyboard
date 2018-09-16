@@ -90,6 +90,9 @@
                                                 <constraint firstItem="Haw-Ja-M7G" firstAttribute="centerY" secondItem="FUv-A5-edy" secondAttribute="centerY" id="uox-oL-aBu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4vO-eH-jSC" kind="show" id="7jW-uF-DHY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -117,6 +120,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN6-Je-PuW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1484" y="888.30584707646187"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="JaG-I4-zJa">
+            <objects>
+                <viewController id="4vO-eH-jSC" customClass="MovieDetailsViewController" customModule="msApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tdw-Iq-l31">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="iOa-R3-umA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bQh-h4-jEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313" y="886"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ew1-5V-81b">
