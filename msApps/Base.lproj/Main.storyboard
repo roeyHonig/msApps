@@ -63,7 +63,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcN-ua-Vh6" id="FUv-A5-edy">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clapperboard_filled" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-bM-FpC">
@@ -121,7 +121,7 @@
             </objects>
             <point key="canvasLocation" x="1484" y="888.30584707646187"/>
         </scene>
-        <!--Movie Details View Controller-->
+        <!--Movie Details-->
         <scene sceneID="JaG-I4-zJa">
             <objects>
                 <viewController id="4vO-eH-jSC" customClass="MovieDetailsViewController" customModule="msApps" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,6 +131,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="iOa-R3-umA"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Movie Details" id="xa4-pV-gYc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="MLp-iF-xpn">
+                            <connections>
+                                <action selector="deleteThisMovieFromTheAppDataBase:" destination="4vO-eH-jSC" id="ICM-IB-iJZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQh-h4-jEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

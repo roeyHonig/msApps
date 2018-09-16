@@ -10,18 +10,23 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController{
 
-   
+    @IBAction func deleteThisMovieFromTheAppDataBase(_ sender: UIBarButtonItem) {
+        deleteThisMovie()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "Movie Details"
+        self.navigationItem.title = "Movie Details" // consider to delete
         
         
     }
     
-    
+    func deleteThisMovie(){
+        print("delete this movie")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
