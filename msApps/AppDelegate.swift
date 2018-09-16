@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // saving a movie into CoreData
-    func saveMovie(name title: String, imageAdress image: String, reportedRatings rating: Double, releasedOn releaseYear: Int64, classifiedAs genre: [String] ){
+    func saveMovie(name title: String?, imageAdress image: String?, reportedRatings rating: Double?, releasedOn releaseYear: Int64?, classifiedAs genre: [String]? ){
         
         let entity = NSEntityDescription.entity(forEntityName: "MovieObject", in: managedContext)!
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
@@ -108,6 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
+        print("finished saving a movie")
         
     }
     
@@ -166,6 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
             let tmpMovieHeader = MovieHeader(title: title, image: image, rating: rating, releaseYear: releaseYear, genre: genre)
             arrayToReturn.append(tmpMovieHeader)
+            print("retrived a movie")
         }
         
         return arrayToReturn
