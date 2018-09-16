@@ -74,6 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Core Data Saving support
+    
+    lazy var managedContext = persistentContainer.viewContext
 
     func saveContext () {
         let context = persistentContainer.viewContext
@@ -86,6 +88,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    // saving a movie into CoreData
+    func saveMovie(name title: String, imageAdress image: String, reportedRatings rating: Double, releasedOn releaseYear: Int64, classifiedAs genre: [String] ){
+        
+        let entity = NSEntityDescription.entity(forEntityName: "MovieObject", in: managedContext)!
+        let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        newEntery.setValue(title, forKey: "title")
+        newEntery.setValue(image, forKey: "image")
+        newEntery.setValue(rating, forKey: "rating")
+        newEntery.setValue(releaseYear, forKey: "releaseYear")
+        newEntery.setValue(genre, forKey: "genre")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+    // deleting a movie based on title
+    // TODO: movies should have unicq id, which will be used to identify them and not by title
+    func deletingThisRecipeFromMyFavoritesInCoreData(attribute att: String, whosValue val: String) {
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: att + " = %@", argumentArray: [val])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            managedContext.delete(entity)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
         }
     }
 
