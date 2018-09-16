@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Read from CoreData
     func getMoviesFromCoreData() -> [MovieHeader] {
-        var ArrayToReturn: [MovieHeader] = []
+        var arrayToReturn: [MovieHeader] = []
         var myManagedObjectToReturn: [NSManagedObject] = []
         // fetch the coreData
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
@@ -157,8 +157,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // iterate, constrct RecipyHeader and append
+        for obj in myManagedObjectToReturn {
+            let title = obj.value(forKey: "title") as! String?
+            let image = obj.value(forKey: "image") as! String?
+            let rating = obj.value(forKey: "rating") as! Double?
+            let releaseYear = obj.value(forKey: "releaseYear") as! Int64?
+            let genre = obj.value(forKey: "genre") as! [String]?
+       
+            let tmpMovieHeader = MovieHeader(title: title, image: image, rating: rating, releaseYear: releaseYear, genre: genre)
+            arrayToReturn.append(tmpMovieHeader)
+        }
         
-        return ArrayToReturn
+        return arrayToReturn
     }
 
 }
