@@ -9,7 +9,12 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
-
+    
+    
+    @IBAction func addMovieViaQRCode(_ sender: UIBarButtonItem) {
+        print("adding a movie")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
