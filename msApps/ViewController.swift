@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         let q = DispatchQueue.global(qos: .userInteractive)
         q.async {
             // save manually to coredata
-            appDelegate.saveMovie(name: "roey inviation", imageAdress: nil, reportedRatings: nil, releasedOn: nil, classifiedAs: ["drama" , "comedy"])
+            appDelegate.saveMovie(name: "roey inviation", imageAdress: "https://api.androidhive.info/json/movies/1.jpg", reportedRatings: nil, releasedOn: nil, classifiedAs: ["drama" , "comedy"])
             // read the coredata
             self.movieCollection = appDelegate.getMoviesFromCoreData()
             // goto next screen

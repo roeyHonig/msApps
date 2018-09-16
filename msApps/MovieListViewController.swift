@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -35,7 +36,20 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableViewCell
         cell.movieTitleLabel.text = moviesListDataSource[indexPath.row].title
+        if let str = moviesListDataSource[indexPath.row].image {
+            cell.movieThumbNailImage.sd_setImage(with: URL(string: str), completed: nil)
+        } else {
+            cell.movieThumbNailImage.image = #imageLiteral(resourceName: "icons8-clapperboard_filled")
+        }
         
+        /*
+        var imgUrlAsString = ""
+        if moviesListDataSource[indexPath.row].image != nil {
+            imgUrlAsString = moviesListDataSource[indexPath.row].image as! String
+        }
+        let imageURL = URL(string: imgUrlAsString)
+        cell.movieThumbNailImage.sd_setImage(with: imageURL, completed: nil)
+         */
         return cell
     }
     

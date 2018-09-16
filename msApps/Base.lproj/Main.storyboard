@@ -102,6 +102,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="movieThumbNailImage" destination="6Jf-bM-FpC" id="t32-Tk-4uL"/>
                                             <outlet property="movieTitleLabel" destination="Haw-Ja-M7G" id="1A2-Lc-uPq"/>
                                             <segue destination="4vO-eH-jSC" kind="show" id="7jW-uF-DHY"/>
                                         </connections>
