@@ -35,7 +35,10 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell") as! MovieTableViewCell
-        cell.movieTitleLabel.text = moviesListDataSource[indexPath.row].title
+        if let str = moviesListDataSource[indexPath.row].title , let int = moviesListDataSource[indexPath.row].releaseYear {
+            cell.movieTitleLabel.text = "(\(int)) " + str
+        }
+        
         if let str = moviesListDataSource[indexPath.row].image {
             cell.movieThumbNailImage.sd_setImage(with: URL(string: str), completed: nil)
         } else {
