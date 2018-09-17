@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         let q = DispatchQueue.global(qos: .userInteractive)
         q.async {
             // save manually to coredata
-            appDelegate.saveMovie(name: "roey inviation", imageAdress: "https://api.androidhive.info/json/movies/1.jpg", reportedRatings: nil, releasedOn: nil, classifiedAs: ["drama" , "comedy"])
+            appDelegate.saveMovie(name: "roey inviation", imageAdress: "https://api.androidhive.info/json/movies/1.jpg", reportedRatings: nil, releasedOn: 2014, classifiedAs: ["drama" , "comedy"])
             // read the coredata
             self.movieCollection = appDelegate.getMoviesFromCoreData()
             // goto next screen
@@ -37,6 +37,15 @@ class ViewController: UIViewController {
     
     @IBAction func readTheJsonAPI(_ sender: UIButton) {
         parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
+    }
+    
+    
+    
+    @IBAction func deleteAllOfCoreData(_ sender: UIButton) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        appDelegate.deleteAllCoreDataFor(Entity: "MovieObject")
     }
     
     override func viewDidLoad() {

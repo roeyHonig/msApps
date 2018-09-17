@@ -138,6 +138,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    // delete all of coreData
+    func deleteAllCoreDataFor(Entity entityName: String){
+        var myFetchedEntites: [NSManagedObject] = []
+        //let myPredicate = NSPredicate(format: att + " = %@", argumentArray: [val])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        //fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        for entity in myFetchedEntites {
+            managedContext.delete(entity)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
     // Read from CoreData
     func getMoviesFromCoreData() -> [MovieHeader] {
         var arrayToReturn: [MovieHeader] = []
