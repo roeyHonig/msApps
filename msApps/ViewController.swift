@@ -29,11 +29,13 @@ class ViewController: UIViewController {
             // uncomment the next line !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //self.parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
             let jsonEncoder = JSONEncoder()
-            let tmpMovie = MovieHeader(title: "roey is amazing", image: "https://api.androidhive.info/json/movies/1.jpg", rating: 8.3, releaseYear: 2019, genre: ["ction"])
+            let tmpMovie = MovieHeader(title: "roey is aasome", image: "https://api.androidhive.info/json/movies/1.jpg", rating: 8.3, releaseYear: 2019, genre: ["ction"])
             let jsonData = try? jsonEncoder.encode(tmpMovie)
             let jsonString = String(data: jsonData!, encoding: String.Encoding.utf8)
-            //let str = "{title: \"Roey is amazing\",image: \"https://api.androidhive.info/json/movies/1.jpg\",rating: 8.3,releaseYear: 2014,genre: [\"Action\",\"Drama\",\"Sci-Fi\"]}"
-self.parseJsonFromFollowing(String: jsonString!)
+            print(jsonString)
+            let str = "{\"title\":\"roey is genius\",\"genre\":[\"ction\"],\"image\":\"https:\\/\\/api.androidhive.info\\/json\\/movies\\/1.jpg\",\"rating\":8.300000000000001,\"releaseYear\":2019}"
+//self.parseJsonFromFollowing(String: jsonString!)
+            self.parseJsonFromFollowing(String: str)
         })
     }
     
