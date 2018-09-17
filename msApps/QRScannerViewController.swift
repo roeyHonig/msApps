@@ -53,7 +53,12 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             
             if metaDataObj.type == AVMetadataObject.ObjectType.qr {
                 // it is a QR code
-                showInputDialog(withMessage: metaDataObj.stringValue)
+                
+                getMovieHeaderFromJSONText(FromJSONText: metaDataObj.stringValue!, callback: { (resultedMovieHeader) in
+                    
+                    self.showInputDialog(withMessage: resultedMovieHeader.title)
+                })
+                
                 
             }
         }

@@ -89,7 +89,7 @@ func getMovieHeaderAPI(apiAddress: String ,callback: @escaping ([MovieHeader])->
 }
 
 func getMovieHeaderFromJSONText(FromJSONText str: String ,callback: @escaping (MovieHeader)-> Void) {
-    
+        print(str)
         let jsonData = str.data(using: String.Encoding.utf8)!
         let decoder = JSONDecoder()
         guard let result = try? decoder.decode(MovieHeader.self, from: jsonData) else {return /*SHOW DIALOG*/}

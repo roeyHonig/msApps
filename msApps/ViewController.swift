@@ -27,7 +27,9 @@ class ViewController: UIViewController {
         }, completion: { (bool) in
             // upon completion
             // uncomment the next line !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            //self.parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
+            self.parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
+            
+            /*
             let jsonEncoder = JSONEncoder()
             let tmpMovie = MovieHeader(title: "roey is aasome", image: "https://api.androidhive.info/json/movies/1.jpg", rating: 8.3, releaseYear: 2019, genre: ["ction"])
             let jsonData = try? jsonEncoder.encode(tmpMovie)
@@ -36,6 +38,9 @@ class ViewController: UIViewController {
             let str = "{\"title\":\"roey is genius\",\"genre\":[\"ction\"],\"image\":\"https:\\/\\/api.androidhive.info\\/json\\/movies\\/1.jpg\",\"rating\":8.300000000000001,\"releaseYear\":2019}"
 //self.parseJsonFromFollowing(String: jsonString!)
             self.parseJsonFromFollowing(String: str)
+             //This is the correct format for generating QR Code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+             //   {"title":"roey is genius","genre":["ction"],"image":"https:\/\/api.androidhive.info\/json\/movies\/1.jpg","rating":8.300000000000001,"releaseYear":2019}
+ */
         })
     }
     
