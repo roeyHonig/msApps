@@ -34,7 +34,32 @@ class MovieDetailsViewController: UIViewController{
     }
     
     func deleteThisMovie(){
-        print("delete this movie")
+        showInputDialog(withMessage: "Are You Sure you want to delete this movie from your list?")
+    }
+    
+    func showInputDialog(withMessage str: String?) {
+        let alertController = UIAlertController(title: "Warning", message: str, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (uiAlertAction) in
+            // upon completion
+            guard let movieToBeDeleted = self.movieDetails else {return}
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+            appDelegate.deletingThisMovieFromCoreData(attribute: "title", whosValue: movieToBeDeleted.title!)
+            
+            // pass the newlly read core data to the data source of the previus screen
+            let movListView = self.navigationController?.viewControllers[0] as! MovieListViewController
+            movListView.moviesListDataSource = appDelegate.getMoviesFromCoreData()
+            // return to previus screen screen
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (uiAlertAction) in
+            
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true) {
+            // upon completion
+        }
     }
 
     func initDisplayElementsOfThisScreen() {

@@ -12,7 +12,6 @@ import AVFoundation
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     var MovieFromScannedQRCode: MovieHeader?
-    var movieCollection: [MovieHeader] = []
     var video = AVCaptureVideoPreviewLayer() // will display for the user (on device screen), what the camera is showing
     
     override func viewDidLoad() {
@@ -96,8 +95,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             // save manually to coredata
             appDelegate.saveMovie(name: mov.title, imageAdress: mov.image, reportedRatings: mov.rating, releasedOn: mov.releaseYear, classifiedAs: mov.genre)
             
-            // TODO: pass the newlly read core data to the data source of the previus screen
-            self.movieCollection = appDelegate.getMoviesFromCoreData()
+            // pass the newlly read core data to the data source of the previus screen
             let movListView = self.navigationController?.viewControllers[0] as! MovieListViewController
             movListView.moviesListDataSource = appDelegate.getMoviesFromCoreData()
             // return to previus screen screen

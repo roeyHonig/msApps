@@ -136,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // deleting a movie based on title
     // TODO: movies should have unicq id, which will be used to identify them and not by title
-    func deletingThisRecipeFromMyFavoritesInCoreData(attribute att: String, whosValue val: String) {
+    func deletingThisMovieFromCoreData(attribute att: String, whosValue val: String) {
         var myFetchedEntites: [NSManagedObject] = []
         let myPredicate = NSPredicate(format: att + " = %@", argumentArray: [val])
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
