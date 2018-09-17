@@ -56,12 +56,12 @@ struct MovieHeaderAPI: Codable {
 let session = URLSession.shared // sheared session for the app
 var myDataTask: URLSessionDataTask?
 
-func getMovieHeaderAPI(callback: @escaping ([MovieHeader])-> Void) {
+func getMovieHeaderAPI(apiAddress: String ,callback: @escaping ([MovieHeader])-> Void) {
     print("api")
     myDataTask?.cancel() // cancel any previus tasks
     
     // API web adress
-    var apiAddress = "https://api.androidhive.info/json/movies.json"
+    //var apiAddress = "https://api.androidhive.info/json/movies.json"
     let apiUrl = URL(string: apiAddress)!
     
     myDataTask = session.dataTask(with: apiUrl) { (data, res, err) in

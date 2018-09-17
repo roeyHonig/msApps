@@ -36,11 +36,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func readTheJsonAPI(_ sender: UIButton) {
-        getMovieHeaderAPI { (resultedMovieHeaderApi) in
-            // callback code
-            print("callBack")
-            print(resultedMovieHeaderApi)
-        }
+        parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
     }
     
     override func viewDidLoad() {
@@ -53,7 +49,6 @@ class ViewController: UIViewController {
         if segue.destination is UINavigationController {
            print("prepere")
             // next screen is the movies list
-            
             let movieList = (segue.destination as! UINavigationController).viewControllers[0] as! MovieListViewController
             movieList.moviesListDataSource = movieCollection
         }
@@ -64,6 +59,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func parseJsonFromFollowing(url apiUrl: String) {
+        getMovieHeaderAPI(apiAddress: apiUrl)  {(resultedMovieHeaderApi) in
+            // callback code
+            print("callBack")
+            print(resultedMovieHeaderApi)
+            self.movieCollection = resultedMovieHeaderApi
+            // goto next screen
+            self.performSegue(withIdentifier: "goToMovieListSegue", sender: self)
+        }
+    }
+    
 
 }
 
