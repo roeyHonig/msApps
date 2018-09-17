@@ -100,7 +100,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
             //self.movieCollection = appDelegate.getMoviesFromCoreData()
         
             // TODO: return to previus screen screen
-     
+            self.navigationController?.popViewController(animated: true)
     }
     
     /*
