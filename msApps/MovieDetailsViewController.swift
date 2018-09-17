@@ -45,21 +45,21 @@ class MovieDetailsViewController: UIViewController{
         }
         
         if let str = movieDetails?.title {
-            titleLabel.text = str
+            titleLabel.text = "Title: " + str
         } else {
             titleLabel.text = "Title not available"
         }
         
         if let dbl = movieDetails?.rating {
             let str = String(dbl)
-            ratingLabel.text = str
+            ratingLabel.text = "Rating: " + str
         } else {
             ratingLabel.text = "Rating not available"
         }
         
         if let int = movieDetails?.releaseYear {
             let str = String(int)
-            releaseYearLabel.text = str
+            releaseYearLabel.text = "Year Of Release: " + str
         } else {
             releaseYearLabel.text = "Year Of Release not available"
         }

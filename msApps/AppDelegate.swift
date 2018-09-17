@@ -95,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveMovie(name title: String?, imageAdress image: String?, reportedRatings rating: Double?, releasedOn releaseYear: Int64?, classifiedAs genre: [String]? ){
         var isDuplicate = false
         // cheack if duplicate
+        // TODO: should cheack according to an id and not title
         var myFetchedEntites: [NSManagedObject] = []
         let myPredicate = NSPredicate(format: "title" + " = %@", argumentArray: [title])
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
@@ -113,6 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if isDuplicate {return}
         
+        // no Duplicate, safe to write into coreData
         let entity = NSEntityDescription.entity(forEntityName: "MovieObject", in: managedContext)!
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
         
@@ -189,7 +191,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
         
         // sort by
-        let descriptor1 = NSSortDescriptor(key: "releaseYear", ascending: true)
+        let descriptor1 = NSSortDescriptor(key: "releaseYear", ascending: false)
         let descriptors = [descriptor1]
         fetchRequest.sortDescriptors = descriptors
         

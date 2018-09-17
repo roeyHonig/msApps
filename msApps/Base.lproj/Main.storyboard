@@ -19,8 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-Zc-kJA">
-                                <rect key="frame" x="143" y="323" width="88.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going Online to get your movies :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCI-Zc-kJA">
+                                <rect key="frame" x="57.5" y="323" width="260" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,6 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="welcomeLabel" destination="FCI-Zc-kJA" id="d4f-nJ-v7n"/>
                         <segue destination="2wo-yq-OYt" kind="show" identifier="goToMovieListSegue" id="tNc-WA-2QT"/>
                     </connections>
                 </viewController>
@@ -94,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcN-ua-Vh6" id="FUv-A5-edy">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clapperboard_filled" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-bM-FpC">
