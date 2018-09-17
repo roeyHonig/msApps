@@ -70,14 +70,10 @@ func getMovieHeaderAPI(apiAddress: String ,callback: @escaping ([MovieHeader])->
             return
         }
         // if we got here, we have data
-        print(data)
-        print(res)
         let decoder = JSONDecoder()
         guard let result = try? decoder.decode([MovieHeader].self, from: data) else {return /*SHOW DIALOG*/}
-        //guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
         // we have our object
-        //let retrived
-        
+    
         // Run code on the UI Thread
         DispatchQueue.main.async {
             callback(result)
@@ -93,10 +89,8 @@ func getMovieHeaderFromJSONText(FromJSONText str: String ,callback: @escaping (M
         let jsonData = str.data(using: String.Encoding.utf8)!
         let decoder = JSONDecoder()
         guard let result = try? decoder.decode(MovieHeader.self, from: jsonData) else {return /*SHOW DIALOG*/}
-        //guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
         // we have our object
-        //let retrived
-        
+    
         // Run code on the UI Thread
         DispatchQueue.main.async {
             callback(result)
@@ -107,25 +101,3 @@ func getMovieHeaderFromJSONText(FromJSONText str: String ,callback: @escaping (M
     
 }
 
-let str = """
-{
-title: "Roey is amazing",
-image: "https://api.androidhive.info/json/movies/1.jpg",
-rating: 8.3,
-releaseYear: 2014,
-genre: [
-"Action",
-"Drama",
-"Sci-Fi"
-]
-}
-"""
-
-
-/*
- 
- 
- {title: "Dawn of the Planet of the Apes",image: "https://api.androidhive.info/json/movies/1.jpg",rating: 8.3,releaseYear: 2014, genre: ["Action","Drama","Sci-Fi"]}
- 
- 
- */

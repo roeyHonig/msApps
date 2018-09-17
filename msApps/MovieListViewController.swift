@@ -58,26 +58,10 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         cell.specificMovieInfo = moviesListDataSource[indexPath.row]
-        
-        /*
-        var imgUrlAsString = ""
-        if moviesListDataSource[indexPath.row].image != nil {
-            imgUrlAsString = moviesListDataSource[indexPath.row].image as! String
-        }
-        let imageURL = URL(string: imgUrlAsString)
-        cell.movieThumbNailImage.sd_setImage(with: imageURL, completed: nil)
-         */
+       
         return cell
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     
     // MARK: - Navigation
 
