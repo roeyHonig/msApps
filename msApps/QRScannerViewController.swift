@@ -45,9 +45,35 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         session.startRunning()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        if metadataObjects.count != 0 {
+            // there's a metaDataObject
+            let metaDataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+            
+            if metaDataObj.type == AVMetadataObject.ObjectType.qr {
+                // it is a QR code
+                showInputDialog(withMessage: metaDataObj.stringValue)
+                
+            }
+        }
+    }
+    
+    func showInputDialog(withMessage str: String?) {
+        let alertController = UIAlertController(title: "Adding a movie to your list", message: str, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (uiAlertAction) in
+           // upon completion
+            print("ok was pressed")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (uiAlertAction) in
+            
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true) {
+            // upon completion
+        }
     }
     
 
