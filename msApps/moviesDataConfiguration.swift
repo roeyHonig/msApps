@@ -88,24 +88,44 @@ func getMovieHeaderAPI(apiAddress: String ,callback: @escaping ([MovieHeader])->
     
 }
 
+func getMovieHeaderFromJSONText(FromJSONText str: String ,callback: @escaping (MovieHeader)-> Void) {
+    
+        let jsonData = str.data(using: String.Encoding.utf8)!
+        let decoder = JSONDecoder()
+        guard let result = try? decoder.decode(MovieHeader.self, from: jsonData) else {return /*SHOW DIALOG*/}
+        //guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {return}
+        // we have our object
+        //let retrived
+        
+        // Run code on the UI Thread
+        DispatchQueue.main.async {
+            callback(result)
+        }
+    
+    
+    
+    
+}
+
+let str = """
+{
+title: "Roey is amazing",
+image: "https://api.androidhive.info/json/movies/1.jpg",
+rating: 8.3,
+releaseYear: 2014,
+genre: [
+"Action",
+"Drama",
+"Sci-Fi"
+]
+}
+"""
+
 
 /*
- // parse the result as JSON
- // then create a Todo from the JSON
- do {
- if let todoJSON = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
- let todo = Todo(json: todoJSON) {
- // created a TODO object
- completionHandler(todo, nil)
- } else {
- // couldn't create a todo object from the JSON
- let error = BackendError.objectSerialization(reason: "Couldn't create a todo object from the JSON")
- completionHandler(nil, error)
- }
- } catch {
- // error trying to convert the data to JSON using JSONSerialization.jsonObject
- completionHandler(nil, error)
- return
- }
+ 
+ 
+ {title: "Dawn of the Planet of the Apes",image: "https://api.androidhive.info/json/movies/1.jpg",rating: 8.3,releaseYear: 2014, genre: ["Action","Drama","Sci-Fi"]}
+ 
  
  */

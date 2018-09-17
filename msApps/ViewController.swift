@@ -26,7 +26,14 @@ class ViewController: UIViewController {
             self.view.alpha = 0.999 // insignicant change, just to make the animation runs
         }, completion: { (bool) in
             // upon completion
-            self.parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
+            // uncomment the next line !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //self.parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
+            let jsonEncoder = JSONEncoder()
+            let tmpMovie = MovieHeader(title: "roey is amazing", image: "https://api.androidhive.info/json/movies/1.jpg", rating: 8.3, releaseYear: 2019, genre: ["ction"])
+            let jsonData = try? jsonEncoder.encode(tmpMovie)
+            let jsonString = String(data: jsonData!, encoding: String.Encoding.utf8)
+            //let str = "{title: \"Roey is amazing\",image: \"https://api.androidhive.info/json/movies/1.jpg\",rating: 8.3,releaseYear: 2014,genre: [\"Action\",\"Drama\",\"Sci-Fi\"]}"
+self.parseJsonFromFollowing(String: jsonString!)
         })
     }
     
@@ -63,6 +70,36 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func parseJsonFromFollowing(String str: String) {
+        getMovieHeaderFromJSONText(FromJSONText: str) { (resultMovieHeader) in
+            print(resultMovieHeader.title!)
+        }
+        /*
+        getMovieHeaderAPI(apiAddress: apiUrl)  {(resultedMovieHeaderApi) in
+            // callback code
+            self.movieCollection = resultedMovieHeaderApi
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            let q = DispatchQueue.global(qos: .userInteractive)
+            q.async {
+                // save manually to coredata
+                for movie in self.movieCollection {
+                    appDelegate.saveMovie(name: movie.title, imageAdress: movie.image, reportedRatings: movie.rating, releasedOn: movie.releaseYear, classifiedAs: movie.genre)
+                }
+                // read the coredata
+                self.movieCollection = appDelegate.getMoviesFromCoreData()
+                // goto next screen
+                DispatchQueue.main.async {
+                    // performe segue
+                    self.performSegue(withIdentifier: "goToMovieListSegue", sender: self)
+                }
+            }
+        }
+     */
     }
     
 
