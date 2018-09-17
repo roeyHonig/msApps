@@ -29,6 +29,11 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         moviesTableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        moviesTableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesListDataSource.count // should read core data
     }
