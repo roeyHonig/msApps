@@ -93,6 +93,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // saving a movie into CoreData
     func saveMovie(name title: String?, imageAdress image: String?, reportedRatings rating: Double?, releasedOn releaseYear: Int64?, classifiedAs genre: [String]? ){
+        var isDuplicate = false
+        // cheack if duplicate
+        var myFetchedEntites: [NSManagedObject] = []
+        let myPredicate = NSPredicate(format: "title" + " = %@", argumentArray: [title])
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieObject")
+        fetchRequest.predicate = myPredicate
+        
+        do {
+            let fetchedEntities = try managedContext.fetch(fetchRequest)
+            myFetchedEntites = fetchedEntities
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        if myFetchedEntites.count != 0 {
+            isDuplicate = true
+        }
+        
+        if isDuplicate {return}
         
         let entity = NSEntityDescription.entity(forEntityName: "MovieObject", in: managedContext)!
         let newEntery = NSManagedObject(entity: entity, insertInto: managedContext)
