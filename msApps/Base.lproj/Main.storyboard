@@ -25,47 +25,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZT-Hv-MId">
-                                <rect key="frame" x="20" y="28" width="335" height="30"/>
-                                <state key="normal" title="go to movie list"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zX-Hn-jMZ">
-                                <rect key="frame" x="0.0" y="66" width="375" height="30"/>
-                                <state key="normal" title="write directlly to core data"/>
-                                <connections>
-                                    <action selector="writeDirectllyToCoreData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gy0-TT-Hrt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEi-hy-uCV">
-                                <rect key="frame" x="0.0" y="104" width="375" height="30"/>
-                                <state key="normal" title="API"/>
-                                <connections>
-                                    <action selector="readTheJsonAPI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uBp-rI-1Zf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3q-qs-RxR">
-                                <rect key="frame" x="0.0" y="142" width="375" height="30"/>
-                                <state key="normal" title="Delete All CoreData"/>
-                                <connections>
-                                    <action selector="deleteAllOfCoreData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NBn-dn-qKT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xZT-Hv-MId" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="4tI-73-Ffs"/>
-                            <constraint firstItem="8zX-Hn-jMZ" firstAttribute="top" secondItem="xZT-Hv-MId" secondAttribute="bottom" constant="8" id="7Ff-yQ-ZAb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L3q-qs-RxR" secondAttribute="trailing" id="AW2-Yk-jRT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8zX-Hn-jMZ" secondAttribute="trailing" id="J5B-Re-sfw"/>
-                            <constraint firstItem="UEi-hy-uCV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ppy-RO-UXP"/>
-                            <constraint firstItem="xZT-Hv-MId" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="RgI-du-afm"/>
-                            <constraint firstItem="8zX-Hn-jMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UcP-1o-XrT"/>
                             <constraint firstItem="FCI-Zc-kJA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YMz-XP-75i"/>
-                            <constraint firstItem="L3q-qs-RxR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="amP-oo-HsG"/>
-                            <constraint firstItem="L3q-qs-RxR" firstAttribute="top" secondItem="UEi-hy-uCV" secondAttribute="bottom" constant="8" id="ebS-M0-Ixn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xZT-Hv-MId" secondAttribute="trailing" constant="20" id="fPt-8F-uhu"/>
-                            <constraint firstItem="UEi-hy-uCV" firstAttribute="top" secondItem="8zX-Hn-jMZ" secondAttribute="bottom" constant="8" id="nKa-5T-gb0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UEi-hy-uCV" secondAttribute="trailing" id="t2g-5l-fy2"/>
                             <constraint firstItem="FCI-Zc-kJA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uMM-L2-Dzh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

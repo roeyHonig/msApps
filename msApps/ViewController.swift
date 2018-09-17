@@ -11,52 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     var movieCollection: [MovieHeader] = []
-    
-    
-    @IBAction func writeDirectllyToCoreData(_ sender: UIButton) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let q = DispatchQueue.global(qos: .userInteractive)
-        q.async {
-            // save manually to coredata
-            appDelegate.saveMovie(name: "roey inviation", imageAdress: "https://api.androidhive.info/json/movies/1.jpg", reportedRatings: nil, releasedOn: 2014, classifiedAs: ["drama" , "comedy"])
-            // read the coredata
-            self.movieCollection = appDelegate.getMoviesFromCoreData()
-            // goto next screen
-            DispatchQueue.main.async {
-                // performe segue
-                print("going tro next screen")
-                
-                self.performSegue(withIdentifier: "goToMovieListSegue", sender: self)
-            }
-        }
-        
-    }
-    
-    
-    @IBAction func readTheJsonAPI(_ sender: UIButton) {
-        parseJsonFromFollowing(url: "https://api.androidhive.info/json/movies.json")
-    }
-    
-    
-    
-    @IBAction func deleteAllOfCoreData(_ sender: UIButton) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        appDelegate.deleteAllCoreDataFor(Entity: "MovieObject")
-    }
-    
-    
     @IBOutlet var welcomeLabel: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        UIView.animate(withDuration: 2, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat ], animations: {
+        UIView.animate(withDuration: 1, delay: 0, options: [UIViewAnimationOptions.autoreverse, UIViewAnimationOptions.repeat ], animations: {
             self.welcomeLabel.alpha = 0
         }, completion: { (bool) in
             // upon completion
@@ -78,11 +38,6 @@ class ViewController: UIViewController {
             let movieList = (segue.destination as! UINavigationController).viewControllers[0] as! MovieListViewController
             movieList.moviesListDataSource = movieCollection
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func parseJsonFromFollowing(url apiUrl: String) {
