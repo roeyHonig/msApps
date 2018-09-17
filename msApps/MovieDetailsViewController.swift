@@ -29,6 +29,15 @@ class MovieDetailsViewController: UIViewController{
         // Do any additional setup after loading the view.
         self.navigationItem.title = "Movie Details" // consider to delete
         // init all the movie details
+        initDisplayElementsOfThisScreen()
+        
+    }
+    
+    func deleteThisMovie(){
+        print("delete this movie")
+    }
+
+    func initDisplayElementsOfThisScreen() {
         if let str = movieDetails?.image {
             posterImg.sd_setImage(with: URL(string: str), completed: nil)
         } else {
@@ -69,15 +78,8 @@ class MovieDetailsViewController: UIViewController{
         } else {
             genreLabel.text = "Genres not available"
         }
-        
-        
-        
     }
     
-    func deleteThisMovie(){
-        print("delete this movie")
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

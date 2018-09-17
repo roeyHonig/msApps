@@ -13,6 +13,8 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet var movieThumbNailImage: UIImageView!
     @IBOutlet var movieTitleLabel: UILabel!
     
+    var specificMovieInfo: MovieHeader?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

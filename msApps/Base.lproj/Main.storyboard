@@ -84,7 +84,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IcN-ua-Vh6" id="FUv-A5-edy">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="196.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-clapperboard_filled" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-bM-FpC">
@@ -114,7 +114,7 @@
                                         <connections>
                                             <outlet property="movieThumbNailImage" destination="6Jf-bM-FpC" id="t32-Tk-4uL"/>
                                             <outlet property="movieTitleLabel" destination="Haw-Ja-M7G" id="1A2-Lc-uPq"/>
-                                            <segue destination="4vO-eH-jSC" kind="show" id="7jW-uF-DHY"/>
+                                            <segue destination="4vO-eH-jSC" kind="show" identifier="goToMovieDetailsSegue" id="7jW-uF-DHY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

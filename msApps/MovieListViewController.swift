@@ -42,6 +42,8 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.movieThumbNailImage.image = #imageLiteral(resourceName: "icons8-clapperboard_filled")
         }
         
+        cell.specificMovieInfo = moviesListDataSource[indexPath.row]
+        
         /*
         var imgUrlAsString = ""
         if moviesListDataSource[indexPath.row].image != nil {
@@ -55,21 +57,26 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.destination is MovieDetailsViewController {
+            // next screen is the movies Details
+            let movieDetailsScreen = segue.destination as! MovieDetailsViewController
+            let cell = sender as! MovieTableViewCell
+            movieDetailsScreen.movieDetails = cell.specificMovieInfo
+        }
     }
-    */
+    
 
 }
