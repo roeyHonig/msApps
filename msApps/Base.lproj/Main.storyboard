@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -107,6 +108,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EEl-n6-HH5">
                             <connections>
                                 <action selector="addMovieViaQRCode:" destination="N60-bp-Ioz" id="77U-ho-3VM"/>
+                                <segue destination="pdc-J7-CJz" kind="show" id="PEE-CA-xLG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -214,6 +216,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQh-h4-jEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2312.8000000000002" y="885.60719640179911"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="88B-aF-uZB">
+            <objects>
+                <viewController id="pdc-J7-CJz" customClass="QRScannerViewController" customModule="msApps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Hg-NF-AAe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="KTM-Os-tmk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tjq-lw-oKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313" y="1664"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ew1-5V-81b">
