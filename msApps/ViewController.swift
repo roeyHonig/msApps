@@ -34,6 +34,15 @@ class ViewController: UIViewController {
         
     }
     
+    
+    @IBAction func readTheJsonAPI(_ sender: UIButton) {
+        getMovieHeaderAPI { (resultedMovieHeaderApi) in
+            // callback code
+            print("callBack")
+            print(resultedMovieHeaderApi)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
