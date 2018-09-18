@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -224,9 +225,25 @@
                     <view key="view" contentMode="scaleToFill" id="8Hg-NF-AAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recFrame.png" translatesAutoresizingMaskIntoConstraints="NO" id="uHf-sH-7PW">
+                                <rect key="frame" x="28" y="174" width="319" height="319"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uHf-sH-7PW" secondAttribute="height" id="fDL-VX-M5q"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uHf-sH-7PW" firstAttribute="centerX" secondItem="8Hg-NF-AAe" secondAttribute="centerX" id="NBv-WX-474"/>
+                            <constraint firstItem="uHf-sH-7PW" firstAttribute="centerY" secondItem="8Hg-NF-AAe" secondAttribute="centerY" id="a3S-Fl-mq7"/>
+                            <constraint firstItem="uHf-sH-7PW" firstAttribute="width" secondItem="KTM-Os-tmk" secondAttribute="width" multiplier="0.85" id="ys5-Hp-Xe0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KTM-Os-tmk"/>
                     </view>
+                    <connections>
+                        <outlet property="recImage" destination="uHf-sH-7PW" id="DIV-Gg-fmS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjq-lw-oKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,5 +270,6 @@
     </scenes>
     <resources>
         <image name="icons8-clapperboard_filled" width="50" height="50"/>
+        <image name="recFrame.png" width="512" height="512"/>
     </resources>
 </document>

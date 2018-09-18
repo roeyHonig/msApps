@@ -11,6 +11,7 @@ import AVFoundation
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
+    @IBOutlet var recImage: UIImageView!
     var MovieFromScannedQRCode: MovieHeader?
     var video = AVCaptureVideoPreviewLayer() // will display for the user (on device screen), what the camera is showing
     
@@ -42,7 +43,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         video = AVCaptureVideoPreviewLayer(session: session)
         video.frame = view.layer.bounds
         view.layer.addSublayer(video)
-        
+        self.view.bringSubview(toFront: recImage)
         session.startRunning()
     }
 
